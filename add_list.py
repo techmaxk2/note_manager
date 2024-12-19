@@ -9,7 +9,7 @@ for i in range(3):
     title = input(f"Введите заголовок заметки {i + 1}: ")
     titles.append(title)
 
-print("\nВы ввели следующие данные:")
+print("Вы ввели следующие данные:")
 print("Имя пользователя:", username)
 print("Заголовки заметки:", titles)
 print("Описание заметки:", content)
