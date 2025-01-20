@@ -11,7 +11,12 @@ while True:
     if not title:  # Если пользователь ввёл пустую строку
         break
 
-    titles.append(title)
+
+    if title in titles:
+        print("Такой заголовок уже был введен ранее.")
+    else:
+        titles.append(title)
+        print("Заголовок успешно добавлен.")
 
 if len(titles) > 0:
     print("\nСписок заголовков заметок:")
