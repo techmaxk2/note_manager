@@ -2,7 +2,8 @@ titles = []
 
 while True:
     title = input("Введите заголовок (оставьте пустым или введите 'стоп' для завершения): ")
-    if title == "стоп" or not title:
+    stop_list = ["стоп", ""]
+    if title in stop_list:
         break
     elif title in titles:
         print("Такой заголовок уже был введен ранее.")
