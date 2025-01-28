@@ -4,9 +4,9 @@ while True:
     title = input("Введите заголовок (оставьте пустым или введите 'стоп' для завершения): ")
     if title == "стоп":
         break
-    if not title:
+    elif not title:
         break
-    if title in titles:
+    elif title in titles:
         print("Такой заголовок уже был введен ранее.")
     else:
         titles.append(title)
