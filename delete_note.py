@@ -3,11 +3,17 @@ def remove_notes_by_criteria(notes, criteria_type, criteria_value):
     removed_count = 0
 
     for note in notes:
-        if note[criteria_type] != criteria_value:
+        if note[criteria_type].lower() != criteria_value.lower():
             updated_notes.append(note)
         else:
             removed_count += 1
-
+    if removed_count > 0:
+        confirmation = input(f"Вы уверены, что хотите удалить {removed_count} заметок? (да/нет): ")
+        if confirmation.lower() == 'да':
+            print(f"Успешно удалено {removed_count} заметок.")
+        else:
+            print("Операция отменена.")
+            return notes
     if removed_count > 0:
         print(f"Успешно удалено {removed_count} заметок.")
     else:
@@ -21,9 +27,9 @@ def display_notes(notes):
         print("\nНет заметок для отображения.")
         return
 
-    print("\nТекущие заметки:")
+    print("\nВаши текущие заметки:")
     for index, note in enumerate(notes):
-        print(f"{index + 1}. Имя: {note['username']}\n   Заголовок: {note['title']}\n   Описание: {note['description']}\n")
+        print(f"{index + 1}. Имя: {note['username']}\nЗаголовок: {note['title']}\nОписание: {note['description']}\n")
 
 def main():
 
