@@ -1,6 +1,6 @@
 statuses = ["выполнено", "в процессе", "отложено"]
 def main():
-    current_status = input("Введите текущий статус заметки: ")
+    current_status = statuses[2]
     while True:
         print(f"\nТекущий статус заметки: {current_status}")
 
