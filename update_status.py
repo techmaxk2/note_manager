@@ -1,22 +1,23 @@
-statuses = ["выполнено", "в процессе", "отложено"]
-def main(a=0):
-    current_status = statuses[a]
+note = {'title': "Имя", 'text': "Текст", 'status': "закрыта"}
+statuses = {1: "выполнено", 2: "в процессе", 3: "отложено"}
+note['status'] = statuses[1]
+def main():
     while True:
-        print(f"\nТекущий статус заметки: {current_status}")
+        print(f"\nТекущий статус заметки: ", note['status'])
 
         print("\nВыберите новый статус заметки:")
-        for i, status in enumerate(statuses):
-            print(f"{i + 1}. {status}")
+        for i in statuses:
+            print(f"{i}. {statuses[i]}")
         try:
             choice = int(input("\nВаш выбор: "))
             if 0 < choice <= len(statuses):
-                new_status = statuses[choice - 1]
-                current_status = new_status
-                print(f"\nСтатус заметки успешно обновлен на: {new_status}")
+                note['status'] = statuses[choice]
+                print(f"\nСтатус заметки успешно обновлен на: {note['status']}")
                 break
             else:
                 print("\nНекорректный ввод! Попробуйте снова.")
         except ValueError:
             print("\nНекорректный ввод! Пожалуйста, введите число.")
 if __name__ == "__main__":
-    main(2)
+    main()
+    print(note)
