@@ -1,7 +1,9 @@
 note = {'title': "Имя", 'text': "Текст", 'status': "закрыта"}
 statuses = {1: "выполнено", 2: "в процессе", 3: "отложено"}
 note['status'] = statuses[1]
+
 def main():
+
     while True:
         print(f"\nТекущий статус заметки: ", note['status'])
 
