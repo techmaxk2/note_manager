@@ -2,7 +2,9 @@ import datetime
 class NoteManager:
     def __init__(self):
         self.notes = []
+
     def add_note(self):
+
         username = input("Введите имя пользователя: ")
         title = input("Введите заголовок заметки: ")
         description = input("Введите описание заметки: ")
@@ -31,6 +33,7 @@ class NoteManager:
         }
         self.notes.append(note)
         print("\nЗаметка успешно добавлена!\n")
+
     def show_notes(self):
 
         if not self.notes:
@@ -44,6 +47,7 @@ class NoteManager:
                     value = value.strftime("%d-%m-%Y")
                 print(f"{key.capitalize()}: {value}")
             print()
+
     def run(self):
 
         print("Добро пожаловать в 'Менеджер заметок'! Вы можете добавить новую заметку.")
