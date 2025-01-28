@@ -1,11 +1,15 @@
 from datetime import datetime
+
 def validate_date(input_date):
+
     try:
         date = datetime.strptime(input_date, '%d-%m-%Y')
         return date.date()
     except ValueError:
         return None
+
 def check_deadline():
+
     current_date = datetime.now().date()
     while True:
         issue_date_input = input("Введите дату дедлайна в формате 'день-месяц-год': ")
