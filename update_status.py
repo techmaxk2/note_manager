@@ -1,35 +1,22 @@
-def get_current_status():
-    return input("Введите текущий статус заметки: ").strip().lower()
-def display_statuses():
-    print("\nДоступны следующие статусы:\n")
-    for index, status in enumerate(statuses):
-        print(f"{index + 1}. {status.title()}")
-def validate_choice(choice):
-    if choice.isdigit():
-        choice = int(choice)
-        if 0 < choice <= len(statuses):
-            return statuses[choice - 1].lower()
-    elif choice.lower() in statuses:
-        return choice.lower()
-    return None
-def update_status(current_status):
-     while True:
-        display_statuses()
-        user_input = input("\nПожалуйста, выберите новый статус (можно ввести текст или номер): ").strip().lower()
-        new_status = validate_choice(user_input)
-        if new_status is not None:
-            current_status["status"] = new_status
-            print(f"\nНовый статус заметки: {new_status.title()}\n")
-            break
-        else:
-            print("\nНекорректный ввод! Попробуйте еще раз.\n")
+statuses = ["выполнено", "в процессе", "отложено"]
 def main():
-    current_status = {"status": ""}
-    current_status["status"] = get_current_status()
+    current_status = input("Введите текущий статус заметки: ")
     while True:
-        print(f"Текущий статус заметки: {current_status['status'].title()}")
-        update_status(current_status)
+        print(f"\nТекущий статус заметки: {current_status}")
 
+        print("\nВыберите новый статус заметки:")
+        for i, status in enumerate(statuses):
+            print(f"{i + 1}. {status}")
+        try:
+            choice = int(input("\nВаш выбор: "))
+            if 0 < choice <= len(statuses):
+                new_status = statuses[choice - 1]
+                current_status = new_status
+                print(f"\nСтатус заметки успешно обновлен на: {new_status}")
+                break
+            else:
+                print("\nНекорректный ввод! Попробуйте снова.")
+        except ValueError:
+            print("\nНекорректный ввод! Пожалуйста, введите число.")
 if __name__ == "__main__":
-    statuses = ["выполнено", "в процессе", "отложено"]
     main()
