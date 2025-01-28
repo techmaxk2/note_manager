@@ -1,6 +1,6 @@
 statuses = ["выполнено", "в процессе", "отложено"]
-def main():
-    current_status = statuses[2]
+def main(a=0):
+    current_status = statuses[a]
     while True:
         print(f"\nТекущий статус заметки: {current_status}")
 
@@ -19,4 +19,4 @@ def main():
         except ValueError:
             print("\nНекорректный ввод! Пожалуйста, введите число.")
 if __name__ == "__main__":
-    main()
+    main(2)
